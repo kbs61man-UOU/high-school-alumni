@@ -302,42 +302,39 @@
     position: relative;
     min-height: 110px;
   }
-  .tl-left {
-    width: 130px;
+  .tl-time {
+    width: 140px;
     flex-shrink: 0;
+    font-size: 17px;
+    font-weight: 700;
+    color: #aaa;
+    white-space: nowrap;
+    text-align: right;
+    padding-right: 16px;
+    padding-top: 3px;
+    line-height: 1.5;
+  }
+  .tl-dot-col {
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
+    flex-shrink: 0;
+    width: 26px;
   }
   .tl-dot {
     width: 22px; height: 22px;
     border-radius: 50%;
     flex-shrink: 0;
-    z-index: 1;
-    margin-top: 4px;
   }
   .tl-line {
     width: 3px;
     flex: 1;
     margin-top: 2px;
-  }
-  .tl-time {
-    position: absolute;
-    left: 0;
-    top: 0;
-    font-size: 17px;
-    font-weight: 700;
-    color: #aaa;
-    white-space: nowrap;
-    width: 110px;
-    text-align: right;
-    padding-right: 8px;
-    padding-top: 2px;
+    min-height: 50px;
   }
   .tl-content {
     flex: 1;
-    padding: 0 0 28px 28px;
+    padding: 0 0 28px 20px;
   }
   .tl-title {
     font-size: 22px;
@@ -691,8 +688,8 @@
   <div class="timeline">
 
     <div class="tl-item">
-      <div class="tl-left">
-        <span class="tl-time">17:20</span>
+      <span class="tl-time">17:20</span>
+      <div class="tl-dot-col">
         <div class="tl-dot dot-blue"></div>
         <div class="tl-line line-blue"></div>
       </div>
@@ -703,8 +700,8 @@
     </div>
 
     <div class="tl-item">
-      <div class="tl-left">
-        <span class="tl-time">17:20<br>~30</span>
+      <span class="tl-time">17:20~<br>17:30</span>
+      <div class="tl-dot-col">
         <div class="tl-dot dot-cyan"></div>
         <div class="tl-line line-cyan"></div>
       </div>
@@ -715,8 +712,8 @@
     </div>
 
     <div class="tl-item">
-      <div class="tl-left">
-        <span class="tl-time">17:30<br>~45</span>
+      <span class="tl-time">17:30~<br>17:45</span>
+      <div class="tl-dot-col">
         <div class="tl-dot dot-orange"></div>
         <div class="tl-line line-orange"></div>
       </div>
@@ -727,8 +724,8 @@
     </div>
 
     <div class="tl-item">
-      <div class="tl-left">
-        <span class="tl-time">17:50<br>~18:00</span>
+      <span class="tl-time">17:50~<br>18:00</span>
+      <div class="tl-dot-col">
         <div class="tl-dot dot-red"></div>
         <div class="tl-line line-red"></div>
       </div>
@@ -739,8 +736,8 @@
     </div>
 
     <div class="tl-item">
-      <div class="tl-left">
-        <span class="tl-time">18:00~</span>
+      <span class="tl-time">18:00~</span>
+      <div class="tl-dot-col">
         <div class="tl-dot dot-gray"></div>
         <div class="tl-line line-gray"></div>
       </div>

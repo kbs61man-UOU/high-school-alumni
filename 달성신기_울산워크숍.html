@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>달성신기 울산 워크숍 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+    background: #1a1a2e;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    padding: 40px 20px;
+  }
+
+  .card {
+    width: 1080px;
+    height: 1080px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .card-num {
+    position: absolute;
+    bottom: 44px;
+    right: 56px;
+    font-size: 17px;
+    font-weight: 500;
+    opacity: 0.35;
+  }
+
+  /* ══════════════════════════════
+     카드 1 : 표지
+  ══════════════════════════════ */
+  .c1 {
+    background: linear-gradient(160deg, #003566 0%, #0077b6 50%, #00b4d8 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+  }
+  .c1 .wave {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 260px;
+    background: rgba(255,255,255,0.06);
+    clip-path: ellipse(60% 100% at 50% 100%);
+  }
+  .c1 .wave2 {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 180px;
+    background: rgba(255,255,255,0.08);
+    clip-path: ellipse(55% 100% at 45% 100%);
+  }
+  .c1 .bubbles {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none;
+  }
+  .bubble {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+  }
+  .c1 .tag {
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #fff;
+    padding: 10px 30px;
+    border-radius: 50px;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    margin-bottom: 36px;
+    position: relative; z-index:1;
+  }
+  .c1 .main-emoji {
+    font-size: 100px;
+    margin-bottom: 24px;
+    position: relative; z-index:1;
+  }
+  .c1 h1 {
+    font-size: 80px;
+    font-weight: 900;
+    color: #fff;
+    text-align: center;
+    line-height: 1.15;
+    position: relative; z-index:1;
+    text-shadow: 0 4px 24px rgba(0,0,0,0.2);
+  }
+  .c1 h1 em { color: #ffd166; font-style: normal; }
+  .c1 .date-box {
+    margin-top: 40px;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 20px;
+    padding: 20px 50px;
+    position: relative; z-index:1;
+  }
+  .c1 .date-box p { color: #fff; font-size: 26px; font-weight: 600; text-align: center; line-height: 1.7; }
+  .c1 .date-box p span { color: #ffd166; font-weight: 700; }
+
+  /* ══════════════════════════════
+     카드 2 : 참석자
+  ══════════════════════════════ */
+  .c2 {
+    background: #fff9f0;
+    display: flex;
+    flex-direction: column;
+    padding: 80px;
+  }
+  .section-tag {
+    display: inline-block;
+    padding: 9px 24px;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 28px;
+    align-self: flex-start;
+  }
+  .tag-blue   { background: #e0f4ff; color: #0077b6; }
+  .tag-orange { background: #fff1e0; color: #e05a00; }
+  .tag-green  { background: #e6faf0; color: #1a7a4a; }
+  .tag-purple { background: #f0e8ff; color: #6b34c9; }
+  .tag-red    { background: #fff0f0; color: #c93434; }
+  .tag-dark   { background: #1a1a2e; color: #ffd166; }
+
+  .c2 h2 {
+    font-size: 56px;
+    font-weight: 900;
+    color: #1a1a2e;
+    margin-bottom: 14px;
+  }
+  .c2 .sub { font-size: 21px; color: #888; margin-bottom: 52px; }
+
+  .region-block {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    flex: 1;
+  }
+  .region-row {
+    border-radius: 22px;
+    padding: 28px 34px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .rr-daegu { background: linear-gradient(135deg, #e0f4ff, #c5eaff); border-left: 6px solid #0077b6; }
+  .rr-nation { background: linear-gradient(135deg, #fff1e0, #ffe0c5); border-left: 6px solid #e05a00; }
+  .rr-ulsan  { background: linear-gradient(135deg, #e6faf0, #c5f0da); border-left: 6px solid #1a7a4a; }
+
+  .region-label {
+    font-size: 17px;
+    font-weight: 700;
+    padding: 6px 16px;
+    border-radius: 30px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .rl-blue   { background: #0077b6; color: #fff; }
+  .rl-orange { background: #e05a00; color: #fff; }
+  .rl-green  { background: #1a7a4a; color: #fff; }
+
+  .member-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .chip {
+    padding: 10px 24px;
+    border-radius: 50px;
+    font-size: 24px;
+    font-weight: 700;
+  }
+  .chip-blue   { background: rgba(0,119,182,0.12); color: #0077b6; }
+  .chip-orange { background: rgba(224,90,0,0.12);  color: #e05a00; }
+  .chip-green  { background: rgba(26,122,74,0.12); color: #1a7a4a; }
+
+  .total-bar {
+    margin-top: 24px;
+    background: #1a1a2e;
+    border-radius: 18px;
+    padding: 22px 34px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .total-bar span { font-size: 22px; color: rgba(255,255,255,0.6); }
+  .total-bar strong { font-size: 26px; color: #ffd166; }
+
+  /* ══════════════════════════════
+     카드 3 : 집결지
+  ══════════════════════════════ */
+  .c3 {
+    background: linear-gradient(160deg, #0077b6 0%, #00b4d8 100%);
+    display: flex;
+    flex-direction: column;
+    padding: 80px;
+    position: relative;
+  }
+  .c3 h2 { font-size: 54px; font-weight: 900; color: #fff; margin-bottom: 10px; }
+  .c3 .sub-white { font-size: 22px; color: rgba(255,255,255,0.7); margin-bottom: 50px; }
+
+  .map-card {
+    background: #fff;
+    border-radius: 28px;
+    overflow: hidden;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .map-iframe-wrap {
+    flex: 1;
+    position: relative;
+    background: #e8f4f8;
+    min-height: 0;
+  }
+  .map-iframe-wrap iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+  }
+  .map-fallback {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(160deg, #e0f4ff, #c5eaff);
+    gap: 16px;
+  }
+  .map-fallback .pin { font-size: 64px; }
+  .map-fallback p { font-size: 19px; color: #555; text-align: center; line-height: 1.6; }
+
+  .map-info {
+    padding: 28px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    border-top: 1px solid #f0f0f0;
+  }
+  .map-info .addr { flex: 1; }
+  .map-info .addr strong { display: block; font-size: 21px; font-weight: 700; color: #1a1a2e; margin-bottom: 6px; }
+  .map-info .addr span  { font-size: 17px; color: #888; line-height: 1.5; }
+  .map-btn {
+    background: #0077b6;
+    color: #fff;
+    padding: 14px 26px;
+    border-radius: 14px;
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .map-btn:hover { background: #005f94; }
+
+  .time-badge {
+    position: absolute;
+    top: 80px;
+    right: 80px;
+    background: #ffd166;
+    color: #1a1a2e;
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-size: 22px;
+    font-weight: 900;
+  }
+
+  /* ══════════════════════════════
+     카드 4 : 26일 타임라인
+  ══════════════════════════════ */
+  .c4 {
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 74px 80px;
+  }
+  .c4 h2 { font-size: 52px; font-weight: 900; color: #1a1a2e; margin-bottom: 8px; }
+  .c4 .sub { font-size: 20px; color: #888; margin-bottom: 48px; }
+
+  .timeline { display: flex; flex-direction: column; gap: 0; flex: 1; }
+  .tl-item {
+    display: flex;
+    gap: 0;
+    position: relative;
+    min-height: 110px;
+  }
+  .tl-left {
+    width: 130px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+  .tl-dot {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    z-index: 1;
+    margin-top: 4px;
+  }
+  .tl-line {
+    width: 3px;
+    flex: 1;
+    margin-top: 2px;
+  }
+  .tl-time {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 17px;
+    font-weight: 700;
+    color: #aaa;
+    white-space: nowrap;
+    width: 110px;
+    text-align: right;
+    padding-right: 8px;
+    padding-top: 2px;
+  }
+  .tl-content {
+    flex: 1;
+    padding: 0 0 28px 28px;
+  }
+  .tl-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 5px;
+  }
+  .tl-desc {
+    font-size: 18px;
+    color: #888;
+    line-height: 1.55;
+  }
+  .tl-badge {
+    display: inline-block;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 6px;
+  }
+
+  .dot-blue  { background: #0077b6; }
+  .dot-cyan  { background: #00b4d8; }
+  .dot-orange{ background: #ff6b35; }
+  .dot-red   { background: #e63946; }
+  .dot-gray  { background: #aaa; }
+  .line-blue  { background: linear-gradient(#0077b6, #00b4d8); }
+  .line-cyan  { background: linear-gradient(#00b4d8, #ff6b35); }
+  .line-orange{ background: linear-gradient(#ff6b35, #e63946); }
+  .line-red   { background: linear-gradient(#e63946, #aaa); }
+  .line-gray  { background: #eee; }
+
+  /* ══════════════════════════════
+     카드 5 : 꽃바위횟집 (지도)
+  ══════════════════════════════ */
+  .c5 {
+    background: linear-gradient(160deg, #ff6b35, #e63946);
+    display: flex;
+    flex-direction: column;
+    padding: 80px;
+    position: relative;
+  }
+  .c5 h2 { font-size: 58px; font-weight: 900; color: #fff; margin-bottom: 8px; }
+  .c5 .sub-white { font-size: 22px; color: rgba(255,255,255,0.75); margin-bottom: 44px; }
+  .c5 .fish-emoji {
+    position: absolute;
+    top: 70px; right: 70px;
+    font-size: 90px;
+    opacity: 0.9;
+  }
+  .menu-row {
+    display: flex;
+    gap: 18px;
+    margin-bottom: 36px;
+  }
+  .menu-chip {
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.35);
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: 50px;
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  /* ══════════════════════════════
+     카드 6 : 27일 오전 일정
+  ══════════════════════════════ */
+  .c6 {
+    background: linear-gradient(160deg, #f9f9ff, #e8f4f8);
+    display: flex;
+    flex-direction: column;
+    padding: 80px;
+  }
+  .c6 h2 { font-size: 52px; font-weight: 900; color: #1a1a2e; margin-bottom: 8px; }
+  .c6 .sub { font-size: 20px; color: #888; margin-bottom: 48px; }
+
+  .morning-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    flex: 1;
+  }
+  .morning-card {
+    border-radius: 24px;
+    padding: 36px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .mc-1 { background: linear-gradient(135deg, #fff, #e0f4ff); border: 2px solid #c5eaff; }
+  .mc-2 { background: linear-gradient(135deg, #fff, #fff1e0); border: 2px solid #ffd6b0; }
+  .mc-3 { background: linear-gradient(135deg, #fff, #e6faf0); border: 2px solid #b0f0cc; grid-column: span 2; flex-direction: row; align-items: center; }
+
+  .mc-icon { font-size: 52px; }
+  .mc-step {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #aaa;
+  }
+  .mc-title { font-size: 28px; font-weight: 800; color: #1a1a2e; }
+  .mc-desc  { font-size: 19px; color: #888; line-height: 1.55; }
+  .mc-3 .mc-content { flex: 1; }
+  .mc-3 .mc-icon-wrap { font-size: 80px; flex-shrink: 0; }
+
+  .arrow-down {
+    text-align: center;
+    font-size: 28px;
+    color: #aaa;
+    margin: 4px 0;
+  }
+
+  /* ══════════════════════════════
+     카드 7 : 비용 안내
+  ══════════════════════════════ */
+  .c7 {
+    background: #1a1a2e;
+    display: flex;
+    flex-direction: column;
+    padding: 80px;
+  }
+  .c7 h2 { font-size: 54px; font-weight: 900; color: #fff; margin-bottom: 8px; }
+  .c7 .sub-white { font-size: 21px; color: rgba(255,255,255,0.5); margin-bottom: 52px; }
+
+  .cost-list { display: flex; flex-direction: column; gap: 22px; flex: 1; }
+  .cost-item {
+    border-radius: 20px;
+    padding: 28px 34px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .ci-free { background: rgba(26,122,74,0.2); border: 1px solid rgba(26,122,74,0.4); }
+  .ci-split { background: rgba(255,107,53,0.2); border: 1px solid rgba(255,107,53,0.4); }
+  .ci-unknown { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); }
+
+  .cost-icon { font-size: 38px; flex-shrink: 0; }
+  .cost-text strong { display: block; font-size: 23px; font-weight: 700; margin-bottom: 5px; }
+  .cost-text span   { font-size: 19px; }
+  .ci-free .cost-text strong   { color: #6ee7b7; }
+  .ci-free .cost-text span     { color: rgba(110,231,183,0.7); }
+  .ci-split .cost-text strong  { color: #ffa07a; }
+  .ci-split .cost-text span    { color: rgba(255,160,122,0.7); }
+  .ci-unknown .cost-text strong{ color: rgba(255,255,255,0.7); }
+  .ci-unknown .cost-text span  { color: rgba(255,255,255,0.4); }
+
+  .free-badge {
+    margin-left: auto;
+    background: #1a7a4a;
+    color: #6ee7b7;
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-size: 17px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .split-badge {
+    margin-left: auto;
+    background: #b84a20;
+    color: #ffa07a;
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-size: 17px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .summary-bar {
+    margin-top: 28px;
+    background: rgba(255,209,102,0.15);
+    border: 1px solid rgba(255,209,102,0.3);
+    border-radius: 18px;
+    padding: 22px 30px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .summary-bar span  { font-size: 28px; }
+  .summary-bar p     { font-size: 21px; color: #ffd166; font-weight: 600; }
+
+  /* ══════════════════════════════
+     카드 8 : 유의사항 + 마무리
+  ══════════════════════════════ */
+  .c8 {
+    background: linear-gradient(160deg, #0f3460 0%, #16213e 50%, #0f0c29 100%);
+    display: flex;
+    flex-direction: column;
+    padding: 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .c8 .glow {
+    position: absolute;
+    width: 500px; height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,180,216,0.15) 0%, transparent 70%);
+    top: 60%; left: 30%;
+    transform: translate(-50%, -50%);
+  }
+  .c8 h2 { font-size: 52px; font-weight: 900; color: #fff; margin-bottom: 8px; position: relative; z-index:1; }
+  .c8 .sub-white { font-size: 21px; color: rgba(255,255,255,0.5); margin-bottom: 44px; position: relative; z-index:1; }
+
+  .notice-list { display: flex; flex-direction: column; gap: 20px; flex: 1; position: relative; z-index:1; }
+  .notice-item {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 20px;
+    padding: 26px 30px;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .notice-icon { font-size: 34px; flex-shrink: 0; }
+  .notice-text strong { display: block; font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+  .notice-text p { font-size: 18px; color: rgba(255,255,255,0.6); line-height: 1.55; }
+
+  .final-msg {
+    margin-top: 28px;
+    background: linear-gradient(135deg, rgba(255,209,102,0.15), rgba(255,107,53,0.15));
+    border: 1px solid rgba(255,209,102,0.3);
+    border-radius: 20px;
+    padding: 28px 32px;
+    text-align: center;
+    position: relative; z-index:1;
+  }
+  .final-msg p { font-size: 26px; font-weight: 700; color: #ffd166; line-height: 1.6; }
+  .final-msg .emoji-row { font-size: 40px; margin-top: 10px; letter-spacing: 6px; }
+
+  /* 가이드 */
+  .guide {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 24px 36px;
+    color: rgba(255,255,255,0.6);
+    font-size: 16px;
+    line-height: 1.8;
+    max-width: 1080px;
+    width: 100%;
+  }
+  .guide strong { color: #ffd166; }
+
+  @media print {
+    body { background: white; padding: 0; gap: 0; }
+    .guide { display: none; }
+    .card { page-break-after: always; }
+  }
+</style>
+</head>
+<body>
+
+<div class="guide">
+  <strong>저장 경로:</strong> C:\AI_Claude\Cardnews\달성신기_울산워크숍.html &nbsp;|&nbsp;
+  <strong>이미지 저장:</strong> 각 카드 우클릭 → 이미지로 저장 &nbsp;/&nbsp; Ctrl+P → PDF 저장 후 캡처
+</div>
+
+<!-- ━━━ 카드 1 : 표지 ━━━ -->
+<div class="card c1">
+  <div class="wave"></div>
+  <div class="wave2"></div>
+  <div class="bubbles">
+    <div class="bubble" style="width:120px;height:120px;top:8%;left:5%;"></div>
+    <div class="bubble" style="width:60px;height:60px;top:15%;right:10%;"></div>
+    <div class="bubble" style="width:200px;height:200px;bottom:25%;left:-50px;"></div>
+    <div class="bubble" style="width:80px;height:80px;top:40%;right:6%;"></div>
+  </div>
+  <div class="tag">달성신기 단체 워크숍</div>
+  <div class="main-emoji">🌊</div>
+  <h1>울산<br><em>워크숍</em></h1>
+  <div class="date-box">
+    <p><span>📅 2026년 6월 26일(금) ~ 27일(토)</span><br>
+       <span>📍 울산광역시 남구</span></p>
+  </div>
+  <span class="card-num" style="color:rgba(255,255,255,0.3);">1 / 8</span>
+</div>
+
+<!-- ━━━ 카드 2 : 참석자 ━━━ -->
+<div class="card c2">
+  <span class="section-tag tag-blue">👥 참석자 안내</span>
+  <h2>이번 워크숍 멤버</h2>
+  <p class="sub">총 5명 / 대구·전국·울산 집결!</p>
+  <div class="region-block">
+    <div class="region-row rr-daegu">
+      <span class="region-label rl-blue">🏙 대구</span>
+      <div class="member-chips">
+        <span class="chip chip-blue">준현</span>
+        <span class="chip chip-blue">정한</span>
+        <span class="chip chip-blue">종현</span>
+      </div>
+    </div>
+    <div class="region-row rr-nation">
+      <span class="region-label rl-orange">🗺 전국구</span>
+      <div class="member-chips">
+        <span class="chip chip-orange">우상</span>
+      </div>
+    </div>
+    <div class="region-row rr-ulsan">
+      <span class="region-label rl-green">🌊 울산</span>
+      <div class="member-chips">
+        <span class="chip chip-green">병수</span>
+      </div>
+    </div>
+    <div class="total-bar">
+      <span>총 인원</span>
+      <strong>⚡ 5명 전원 집결</strong>
+    </div>
+  </div>
+  <span class="card-num" style="color:#ccc;">2 / 8</span>
+</div>
+
+<!-- ━━━ 카드 3 : 집결지 ━━━ -->
+<div class="card c3">
+  <span class="section-tag tag-dark">📍 집결지 안내</span>
+  <div class="time-badge">⏰ 17:20 집결</div>
+  <h2>울산대 청운학사<br>문수관</h2>
+  <p class="sub-white">울산대학교 학생생활관 — 이곳으로 모입니다!</p>
+  <div class="map-card">
+    <div class="map-iframe-wrap">
+      <iframe
+        src="https://map.naver.com/p/entry/place/37485753"
+        title="울산대학교 청운학사 문수관 지도"
+        allowfullscreen
+        loading="lazy"
+        onerror="this.style.display='none'">
+      </iframe>
+      <div class="map-fallback" style="display:none;">
+        <span class="pin">📍</span>
+        <p>울산 남구 문수로410번길 48<br>청운학사 문수관</p>
+      </div>
+    </div>
+    <div class="map-info">
+      <div class="addr">
+        <strong>청운학사 문수관</strong>
+        <span>울산 남구 문수로410번길 48</span>
+      </div>
+      <a class="map-btn" href="https://naver.me/GTnhqbxP" target="_blank">
+        🗺 네이버 지도
+      </a>
+    </div>
+  </div>
+  <span class="card-num" style="color:rgba(255,255,255,0.3);">3 / 8</span>
+</div>
+
+<!-- ━━━ 카드 4 : 26일 타임라인 ━━━ -->
+<div class="card c4">
+  <span class="section-tag tag-blue">🗓 6월 26일(금) 일정</span>
+  <h2>Day 1 타임라인</h2>
+  <p class="sub">도착부터 취침까지 알찬 첫째 날</p>
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-left">
+        <span class="tl-time">17:20</span>
+        <div class="tl-dot dot-blue"></div>
+        <div class="tl-line line-blue"></div>
+      </div>
+      <div class="tl-content">
+        <div class="tl-title">🏠 청운학사 문수관 집결</div>
+        <div class="tl-desc">5명 전원 기숙사 앞 집결<br><span style="color:#0077b6;font-weight:600;">울산 남구 문수로410번길 48</span></div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-left">
+        <span class="tl-time">17:20<br>~30</span>
+        <div class="tl-dot dot-cyan"></div>
+        <div class="tl-line line-cyan"></div>
+      </div>
+      <div class="tl-content">
+        <div class="tl-title">🛎 체크인 & 짐 풀기</div>
+        <div class="tl-desc">기숙사 체크인 후 짐 정리<br><span style="font-size:16px;color:#aaa;">※ 외국인·학생 전용 — 조용히!</span></div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-left">
+        <span class="tl-time">17:30<br>~45</span>
+        <div class="tl-dot dot-orange"></div>
+        <div class="tl-line line-orange"></div>
+      </div>
+      <div class="tl-content">
+        <div class="tl-title">🚐 울산대 무거동 앞으로 이동</div>
+        <div class="tl-desc">대학 카니발 차량 1대 이동<br><span style="font-size:16px;color:#aaa;">5분 내외 거리</span></div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-left">
+        <span class="tl-time">17:50<br>~18:00</span>
+        <div class="tl-dot dot-red"></div>
+        <div class="tl-line line-red"></div>
+      </div>
+      <div class="tl-content">
+        <div class="tl-title">🦀 꽃바위횟집으로 도보 이동</div>
+        <div class="tl-desc">무거동 앞에서 도보 이동</div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-left">
+        <span class="tl-time">18:00~</span>
+        <div class="tl-dot dot-gray"></div>
+        <div class="tl-line line-gray"></div>
+      </div>
+      <div class="tl-content">
+        <div class="tl-title">🍻 저녁 1차 → 2차 → 귀숙</div>
+        <div class="tl-desc">1차 꽃바위횟집 → 2차 대학 주변<br>→ 택시로 기숙사 귀환 후 취침</div>
+      </div>
+    </div>
+
+  </div>
+  <span class="card-num" style="color:#ccc;">4 / 8</span>
+</div>
+
+<!-- ━━━ 카드 5 : 꽃바위횟집 ━━━ -->
+<div class="card c5">
+  <span class="section-tag tag-orange">🍣 1차 저녁 — 무료!</span>
+  <div class="fish-emoji">🐟</div>
+  <h2>꽃바위횟집</h2>
+  <p class="sub-white">울산대 앞 신선한 회 맛집 — 1차 비용 없음 🎉</p>
+  <div class="menu-row">
+    <span class="menu-chip">🐠 신선한 회</span>
+    <span class="menu-chip">🦑 해산물</span>
+    <span class="menu-chip">🍶 반주 한 잔</span>
+  </div>
+  <div class="map-card">
+    <div class="map-iframe-wrap">
+      <iframe
+        src="https://map.naver.com/p/entry/place/1698614765"
+        title="꽃바위횟집 지도"
+        allowfullscreen
+        loading="lazy">
+      </iframe>
+      <div class="map-fallback" style="display:none;">
+        <span class="pin">🐟</span>
+        <p>꽃바위횟집<br>울산대학교 앞 무거동</p>
+      </div>
+    </div>
+    <div class="map-info">
+      <div class="addr">
+        <strong>꽃바위횟집</strong>
+        <span>울산 남구 무거동 · 울산대 앞</span>
+      </div>
+      <a class="map-btn" href="https://naver.me/xf5ATrEg" target="_blank" style="background:#e63946;">
+        🗺 네이버 지도
+      </a>
+    </div>
+  </div>
+  <span class="card-num" style="color:rgba(255,255,255,0.3);">5 / 8</span>
+</div>
+
+<!-- ━━━ 카드 6 : 27일 오전 ━━━ -->
+<div class="card c6">
+  <span class="section-tag tag-green">🌅 6월 27일(토) 오전</span>
+  <h2>Day 2 — 개운하게 마무리</h2>
+  <p class="sub">개운한 아침 루틴으로 활기차게!</p>
+  <div class="morning-grid">
+    <div class="morning-card mc-1">
+      <div class="mc-icon">😴</div>
+      <div class="mc-step">STEP 01</div>
+      <div class="mc-title">기상</div>
+      <div class="mc-desc">편안한 기숙사에서<br>숙면 후 기상</div>
+    </div>
+    <div class="morning-card mc-2">
+      <div class="mc-icon">🛁</div>
+      <div class="mc-step">STEP 02</div>
+      <div class="mc-title">사우나</div>
+      <div class="mc-desc"><strong>화이트 애플</strong><br>차량 5분 거리 이동<br>개운하게 목욕!</div>
+    </div>
+    <div class="morning-card mc-3">
+      <div class="mc-icon-wrap">🍲</div>
+      <div class="mc-content">
+        <div class="mc-step">STEP 03 · FINAL</div>
+        <div class="mc-title" style="font-size:34px;">해장국 → 해산</div>
+        <div class="mc-desc">든든한 해장국으로 마무리<br>→ 각자 귀가 (1/n 정산)</div>
+      </div>
+    </div>
+  </div>
+  <span class="card-num" style="color:#aaa;">6 / 8</span>
+</div>
+
+<!-- ━━━ 카드 7 : 비용 안내 ━━━ -->
+<div class="card c7">
+  <span class="section-tag tag-dark">💰 비용 안내</span>
+  <h2>얼마 내야 해?</h2>
+  <p class="sub-white">미리 확인하고 마음 편하게 참석하세요</p>
+  <div class="cost-list">
+    <div class="cost-item ci-free">
+      <span class="cost-icon">🏠</span>
+      <div class="cost-text">
+        <strong>숙소 (청운학사 문수관)</strong>
+        <span>울산대 기숙사 — 비용 없음</span>
+      </div>
+      <span class="free-badge">FREE</span>
+    </div>
+    <div class="cost-item ci-free">
+      <span class="cost-icon">🐟</span>
+      <div class="cost-text">
+        <strong>1차 — 꽃바위횟집</strong>
+        <span>저녁 회식 1차 비용 — 비용 없음</span>
+      </div>
+      <span class="free-badge">FREE</span>
+    </div>
+    <div class="cost-item ci-split">
+      <span class="cost-icon">🍻</span>
+      <div class="cost-text">
+        <strong>1일차 2차 술자리</strong>
+        <span>대학 주변 2차 비용</span>
+      </div>
+      <span class="split-badge">1/n 정산</span>
+    </div>
+    <div class="cost-item ci-split">
+      <span class="cost-icon">🛁</span>
+      <div class="cost-text">
+        <strong>사우나 (화이트 애플)</strong>
+        <span>27일 오전 목욕 비용</span>
+      </div>
+      <span class="split-badge">1/n 정산</span>
+    </div>
+    <div class="cost-item ci-split">
+      <span class="cost-icon">🍲</span>
+      <div class="cost-text">
+        <strong>해장국</strong>
+        <span>27일 오전 식사 후 해산</span>
+      </div>
+      <span class="split-badge">1/n 정산</span>
+    </div>
+  </div>
+  <div class="summary-bar">
+    <span>💡</span>
+    <p>숙소 + 1차 회식은 무료 / 나머지는 5명이서 나눠 내요!</p>
+  </div>
+  <span class="card-num" style="color:rgba(255,255,255,0.25);">7 / 8</span>
+</div>
+
+<!-- ━━━ 카드 8 : 유의사항 + 마무리 ━━━ -->
+<div class="card c8">
+  <div class="glow"></div>
+  <span class="section-tag tag-blue">📢 유의사항 & 준비물</span>
+  <h2>꼭 확인하세요!</h2>
+  <p class="sub-white">원활한 워크숍을 위한 안내사항</p>
+  <div class="notice-list">
+    <div class="notice-item">
+      <span class="notice-icon">🤫</span>
+      <div class="notice-text">
+        <strong>기숙사 내 고성방가 금지</strong>
+        <p>외국인 및 학생 전용 기숙사입니다.<br>복도·객실 내 큰 소리 자제해 주세요!</p>
+      </div>
+    </div>
+    <div class="notice-item">
+      <span class="notice-icon">🛁</span>
+      <div class="notice-text">
+        <strong>수건 및 개인 세면도구 지참</strong>
+        <p>기숙사·사우나 대비 — 수건, 칫솔, 세면도구 챙겨오세요.</p>
+      </div>
+    </div>
+    <div class="notice-item">
+      <span class="notice-icon">🚕</span>
+      <div class="notice-text">
+        <strong>귀숙은 택시 이용</strong>
+        <p>2차 후 기숙사로 이동 시 택시 이용 예정 (1/n 정산)</p>
+      </div>
+    </div>
+    <div class="notice-item">
+      <span class="notice-icon">🕔</span>
+      <div class="notice-text">
+        <strong>집결 시간 엄수</strong>
+        <p>17:20 청운학사 문수관 앞 — 늦으면 혼자 찾아오기 😅</p>
+      </div>
+    </div>
+  </div>
+  <div class="final-msg">
+    <p>달성신기 울산 워크숍<br>모두 안전하게 와서 즐겁게 놀아요! 🎉</p>
+    <div class="emoji-row">🌊 🍣 🍻 🛁 🤙</div>
+  </div>
+  <span class="card-num" style="color:rgba(255,255,255,0.25);">8 / 8</span>
+</div>
+
+<script>
+  // iframe 로드 실패 시 fallback 표시
+  document.querySelectorAll('.map-iframe-wrap iframe').forEach(function(iframe) {
+    iframe.addEventListener('error', function() {
+      iframe.style.display = 'none';
+      iframe.nextElementSibling.style.display = 'flex';
+    });
+    setTimeout(function() {
+      try {
+        if (!iframe.contentDocument) {
+          iframe.style.display = 'none';
+          iframe.nextElementSibling.style.display = 'flex';
+        }
+      } catch(e) {
+        // cross-origin: iframe은 로드됐을 가능성 높음, 그냥 둠
+      }
+    }, 3000);
+  });
+</script>
+</body>
+</html>
